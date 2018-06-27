@@ -1,3 +1,12 @@
+// What this app does
+// movie reviewer
+
+// allows a user or any user
+
+// to add a movie with a title, rating, and short review of the film
+
+// that anyone can see in a table
+
 // Initialize Firebase
 var config = {
     apiKey: "AIzaSyBorA86SUsfJLcjXtKsjkqLMXdPaACj0Bc",
@@ -10,14 +19,6 @@ var config = {
   firebase.initializeApp(config);
 
 var database = firebase.database();
-
-// movie reviewer
-
-// allows a user or any user
-
-// to add a movie with a title, rating, and short review of the film
-
-// that anyone can see in a table
 
 // when someone submit the form
 $("#form-submit").on("click", function(e){
@@ -34,10 +35,8 @@ $("#form-submit").on("click", function(e){
     });
 });
 
-
 // get all the records from the firebase database 
 // and display that info on the table
-
 database.ref().on("child_added", function(snapshot){
     console.log(snapshot.val());
     $("table tbody").append("<tr><td>"+snapshot.val().title+"</td><td>"+snapshot.val().rating+"/10</td><td>"+snapshot.val().review+"</td></tr>");
